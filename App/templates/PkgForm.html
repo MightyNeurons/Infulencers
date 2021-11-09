@@ -1,0 +1,443 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+{% load static %}
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+         <title>Mighty Neuron </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+
+		<!-- CSS here -->
+            <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+            <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+            <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+            <link rel="stylesheet" href="{% static 'css/price_rangs.css' %}">
+            <link rel="stylesheet" href="{% static 'css/slicknav.css' %}">
+            <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+            <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+            <link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">
+            <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+            <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+            <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+            <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		
+   </head>
+
+   <body>
+    <!-- Preloader Start -->
+  
+    <header>
+        <!-- Header Start -->
+       <div class="header-area header-transparrent">
+           <div class="headder-top header-sticky">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-2">
+                            <!-- Logo -->
+                            <div class="logo">
+                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                            </div>  
+                        </div>
+                        <div class="col-lg-9 col-md-9">
+                            <div class="menu-wrapper">
+                                <!-- Main-menu -->
+                                <div class="main-menu">
+                                    <nav class="d-none d-lg-block">
+                                        <ul id="navigation">
+                                            <li><a href="#">Home</a></li>
+                                            <li><a href="#">Find a Influencer</a></li>
+                                            <li><a href="#">About</a></li>
+                                            <li><a href="#">Page</a>
+                                                <ul class="submenu">
+                                                    <li><a href="#">Blog</a></li>
+                                                    <li><a href="#">Blog Details</a></li>
+                                                    <li><a href="#">Elements</a></li>
+                                                    <li><a href="#">job Details</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>          
+                                <!-- Header-btn -->
+                                <div class="header-btn d-none f-right d-lg-block">
+                                    <a href="#" class="btn head-btn1">Sign UP</a>
+                                    <a href="#" class="btn head-btn2">Login</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+       </div>
+        <!-- Header End -->
+    </header>
+    <main>
+
+
+		<div class="container"> <!-- Table start 11/7 -->
+<div class="row" style="margin-top:50px ">
+    	
+				<form class="col-lg-9 col-xl-9" method = "POST">
+                {% csrf_token %}
+					
+					<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">&nbsp;</th>
+      <th scope="col">Basic</th>
+      <th scope="col">Standard</th>
+      <th scope="col">Premium</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Packages Name</th>
+      <td>{{Initital_Form.Besic_Packages_Name}}</td>
+      <td>{{Initital_Form.Standered_Packeges_Name}}</td>
+      <td>{{Initital_Form.Premium_Packages_Name}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Description</th>
+      <td>{{Initital_Form.Besic_Packages_Descriptions}}</td>
+      <td>{{Initital_Form.Standered_Packeges_Description}}</td>
+      <td>{{Initital_Form.Premium_Packages_Descriptions}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Packages Price</th>
+      <td>{{Initital_Form.Besic_Packages_Price}}</td>
+      <td>{{Initital_Form.Standered_Packeges_Price}}</td>
+      <td>{{Initital_Form.Premium_Packages_Price}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Delivery Time</th>
+      <td>{{Initital_Form.Besic_Delivery_Time}}</td>
+      <td>{{Initital_Form.Standered_Delivery_Time}}</td>
+      <td>{{Initital_Form.Premium_Delivery_Time}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Instagram Image to Feed</th>
+      <td>{{Initital_Form.Instagram_Image_to_Feed_Besic}}</td>
+      <td>{{Initital_Form.Instagram_Image_to_Feed_Std}}</td>
+      <td>{{Initital_Form.Instagram_Image_to_Feed_Prm}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Instagram Video to Feed</th>
+      <td>{{Initital_Form.Instagram_Video_to_Feed_Besic}}</td>
+      <td>{{Initital_Form.Instagram_Video_to_Feed_Std}}</td>
+      <td>{{Initital_Form.Instagram_Video_to_Feed_Prm}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Instagram Post to Story</th>
+      <td>{{Initital_Form.Instagram_Post_to_Story_Besic}}</td>
+      <td>{{Initital_Form.Instagram_Post_to_Story_Std}}</td>
+      <td>{{Initital_Form.Instagram_Post_to_Story_Prm}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Instagram Post to Reel Besic</th>
+      <td>{{Initital_Form.Instagram_Post_to_Reel_Besic}}</td>
+      <td>{{Initital_Form.Instagram_Post_to_Reel_Std}}</td>
+      <td>{{Initital_Form.Instagram_Post_to_Reel_Prm}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Instagram Live Product Endorsment</th>
+      <td>{{Initital_Form.Instagram_Live_Product_Endorsment_Besic}}</td>
+      <td>{{Initital_Form.Instagram_Live_Product_Endorsment_Std}}</td>
+      <td>{{Initital_Form.Instagram_Live_Product_Endorsment_Prm}}</td>
+    </tr>
+    <tr>
+      <th scope="row">TikTok Post to Feed Besic</th>
+      <td>{{Initital_Form.TikTok_Post_to_Feed_Besic}}</td>
+      <td>{{Initital_Form.TikTok_Post_to_Feed_Std}}</td>
+      <td>{{Initital_Form.TikTok_Post_to_Feed_Prm}}</td>
+    </tr>
+    <tr>
+      <th scope="row">TikTok Post Product Review Video</th>
+      <td>{{Initital_Form.TikTok_Post_Product_Review_Video_Besic}}</td>
+      <td>{{Initital_Form.TikTok_Post_Product_Review_Video_Std}}</td>
+      <td>{{Initital_Form.TikTok_Post_Product_Review_Video_Prm}}</td>
+    </tr>
+    <tr>
+      <th scope="row">TikTok Product Review Short Video</th>
+      <td>{{Initital_Form.TikTok_Product_Review_Short_Video_Besic}}</td>
+      <td>{{Initital_Form.TikTok_Product_Review_Short_Video_Std}}</td>
+      <td>{{Initital_Form.TikTok_Product_Review_Short_Video_Prm}}</td>
+    </tr>
+    <tr>
+      <th scope="row">TikTok Live Product Review</th>
+      <td>{{Initital_Form.TikTok_Live_Product_Review_Besic}}</td>
+      <td>{{Initital_Form.TikTok_Live_Product_Review_Std}}</td>
+      <td>{{Initital_Form.TikTok_Live_Product_Review_Prm}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Post Duration</th>
+      <td>{{Initital_Form.Duration_Post_Besic}}</td>
+      <td>{{Initital_Form.Duration_Post_Standared}}</td>
+      <td>{{Initital_Form.Duration_Post_Premium}}</td>
+    </tr>
+    <tr>
+      <th scope="row"></th>
+      <td>{{Initital_Form.Post_Select_Besic}}</td>
+      <td>{{Initital_Form.Post_Select_Standared}}</td>
+      <td>{{Initital_Form.Post_Select_Premium}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Video Duration</th>
+      <td>{{Initital_Form.Duration_Video_Besic}}</td>
+      <td>{{Initital_Form.Duration_Video_Standared}}</td>
+      <td>{{Initital_Form.Duration_Video_Premium}}</td>
+    </tr>
+    <tr>
+      <th scope="row"></th>
+      <td>{{Initital_Form.Video_Select_Besic}}</td>
+      <td>{{Initital_Form.Video_Select_Standared}}</td>
+      <td>{{Initital_Form.Video_Select_Premium}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+						<input id="Button_Id" type="submit" value='Next'/>
+							</form>
+						
+					
+				
+					
+				
+	
+	
+	
+	<div class="col-lg-3 col-xl-3" ><!-- end card-box -->
+
+        <div class="card">
+	                                <div class="card-body">
+	                                    <div class="d-inline-block">
+	                                        <h5 class="text-muted">Create GIG</h5>
+	                                        <h2 class="mb-0">&nbsp;</h2>
+	                                    </div>
+	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-brand-light mt-1">
+	                                        <i class="fa fa-money-bill-alt fa-fw fa-sm text-brand"></i>
+	                                    </div>
+	                                </div>
+	                            </div> <!-- end card-box-->
+		
+		
+		<div class="card">
+	                                <div class="card-body">
+	                                    <div class="d-inline-block">
+	                                        <h5 class="text-muted">Verification</h5>
+	                                        <h2 class="mb-0">&nbsp;</h2>
+	                                    </div>
+	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-brand-light mt-1">
+	                                        <i class="fa fa-money-bill-alt fa-fw fa-sm text-brand"></i>
+	                                    </div>
+	                                </div>
+	                            </div>
+		
+		<div class="card">
+	                                <h5 class="card-header">Verification Keywords</h5>
+	                                <div class="card-body">
+	                                    <div id="gender_donut" style="height: 230px;"></div>
+	                                </div>
+	                                <div class="card-footer p-0 bg-white d-flex">
+	                                    <div class="card-footer-item card-footer-item-bordered w-50">
+	                                        <h2 class="mb-0"> 60% </h2>
+	                                        <p>Month:12</p>
+	                                    </div>
+	                                    <div class="card-footer-item card-footer-item-bordered">
+	                                        <h2 class="mb-0">40% </h2>
+	                                        <p>AllTime:133 </p>
+	                                    </div>
+	                                </div>
+	                            </div>
+
+    </div>
+	
+	
+	
+</div>
+</div>
+
+    </main>
+    <footer>
+        <!-- Footer Start-->
+        <div class="footer-area footer-bg footer-padding">
+            <div class="container">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                       <div class="single-footer-caption mb-50">
+                         <div class="single-footer-caption mb-30">
+                             <div class="footer-tittle">
+                                 <h4>About Us</h4>
+                                 <div class="footer-pera">
+                                     <p>Heaven frucvitful doesn't cover lesser dvsays appear creeping seasons so behold.</p>
+                                </div>
+                             </div>
+                         </div>
+
+                       </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Contact Info</h4>
+                                <ul>
+                                    <li>
+                                    <p>Address :Your address goes
+                                        here, your demo address.</p>
+                                    </li>
+                                    <li><a href="#">Phone : +123456789</a></li>
+                                    <li><a href="#">Email : info@mightyneuron.com</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Important Link</h4>
+                                <ul>
+                                    <li><a href="#"> View Project</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="#">Testimonial</a></li>
+                                    <li><a href="#">Proparties</a></li>
+                                    <li><a href="#">Support</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Newsletter</h4>
+                                <div class="footer-pera footer-pera2">
+                                 <p>Heaven fruitful doesn't over lesser in days. Appear creeping.</p>
+                             </div>
+                             <!-- Form -->
+                             <div class="footer-form" >
+                                 <div id="mc_embed_signup">
+                                     <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                                     method="get" class="subscribe_form relative mail_part">
+                                         <input type="email" name="email" id="newsletter-form-email" placeholder="Email Address"
+                                         class="placeholder hide-on-focus" onfocus="this.placeholder = ''"
+                                         onblur="this.placeholder = ' Email Address '">
+                                         <div class="form-icon">
+                                             <button type="submit" name="submit" id="newsletter-submit"
+                                             class="email_icon newsletter-submit button-contactForm"><img src="assets/img/icon/form.png" alt=""></button>
+                                         </div>
+                                         <div class="mt-10 info"></div>
+                                     </form>
+                                 </div>
+                             </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               <!--  -->
+               <div class="row footer-wejed justify-content-between">
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                        <!-- logo -->
+                        <div class="footer-logo mb-20">
+                        <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                    <div class="footer-tittle-bottom">
+                        <span>5000+</span>
+                        <p>Talented Hunter</p>
+                    </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="footer-tittle-bottom">
+                            <span>451</span>
+                            <p>Talented Hunter</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <!-- Footer Bottom Tittle -->
+                        <div class="footer-tittle-bottom">
+                            <span>568</span>
+                            <p>Talented Hunter</p>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+        <!-- footer-bottom area -->
+        <div class="footer-bottom-area footer-bg">
+            <div class="container">
+                <div class="footer-border">
+                     <div class="row d-flex justify-content-between align-items-center">
+                         <div class="col-xl-10 col-lg-10 ">
+                             <div class="footer-copy-right">
+                                 <p>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#" target="_blank">Mighty Neuron</a>
+ </p>
+                             </div>
+                         </div>
+                         <div class="col-xl-2 col-lg-2">
+                             <div class="footer-social f-right">
+                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                 <a href="#"><i class="fab fa-twitter"></i></a>
+                                 <a href="#"><i class="fas fa-globe"></i></a>
+                                 <a href="#"><i class="fab fa-behance"></i></a>
+                             </div>
+                         </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+
+  <!-- JS here -->
+	
+		<!-- All JS Custom Plugins Link Here here -->
+        <script src="{% static 'js/vendor/modernizr-3.5.0.min.js' %}"></script>
+		<!-- Jquery, Popper, Bootstrap -->
+		<script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+        <script src="{% static 'js/popper.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+	    <!-- Jquery Mobile Menu -->
+        <script src="{% static 'js/jquery.slicknav.min.js' %}"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'js/slick.min.js' %}"></script>
+        <script src="{% static 'js/price_rangs.js' %}"></script>
+        
+		<!-- One Page, Animated-HeadLin -->
+        <script src="{% static 'js/wow.min.js' %}"></script>
+		<script src="{% static 'js/animated.headline.js' %}"></script>
+        <script src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+
+		<!-- Scrollup, nice-select, sticky -->
+        <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
+        <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+		<script src="{% static 'js/jquery.sticky.js' %}"></script>
+        
+        <!-- contact js -->
+        <script src="{% static 'js/contact.js' %}"></script>
+        <script src="{% static 'js/jquery.form.js' %}"></script>
+        <script src="{% static 'js/jquery.validate.min.js' %}"></script>
+        <script src="{% static 'js/mail-script.js' %}"></script>
+        <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+        
+		<!-- Jquery Plugins, main Jquery -->	
+        <script src="{% static 'js/plugins.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+	   
+	   <script src=	"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+    </body>
+</html>

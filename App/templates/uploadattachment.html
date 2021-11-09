@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'gigs/css/image_upload.css' %}">
+    </head>
+    <body>
+       <h1>Upload File</h1>
+<h2>Upload Attachments</h2>
+
+<form action="#" method = "POST" enctype="multipart/form-data">
+{% csrf_token %}
+    {% for inputs in Image_Field %}
+  <div class="input-file-container">  
+    {{inputs.label_tag}}
+    {{inputs}}
+  </div>
+  <p class="file-return"></p>
+  {% endfor %}
+  <button type="submit" >Upload</button>
+</form>
+
+        
+        <script src="{% static 'gigs/js/image_upload.js' %}" async defer></script>
+    </body>
+</html>

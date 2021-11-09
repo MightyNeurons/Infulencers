@@ -1,0 +1,532 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+{% load static %}
+{% load notifications_tags %}
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+         <title>Mighty Neuron </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+
+		<!-- CSS here -->
+            <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+            <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+            <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+            <link rel="stylesheet" href="{% static 'css/price_rangs.css' %}">
+            <link rel="stylesheet" href="{% static 'css/slicknav.css' %}">
+            <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+            <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+            <link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">
+            <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+            <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+            <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+            <link rel="stylesheet" href="{% static 'css/style.css' %}">
+		<link rel="stylesheet" href="{% static 'css/style1.css' %}">
+        <script src="{% static 'notifications/notify.js' %}" type="text/javascript"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		
+   </head>
+
+   <body>
+    <!-- Preloader Start -->
+  
+    <header>
+        <!-- Header Start -->
+       <div class="header-area header-transparrent">
+           <div class="headder-top header-sticky">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-2">
+                            <!-- Logo -->
+                            <div class="logo">
+                                <a href="index.html"><img src="{% static 'img/logo/logo.png' %}" alt=""></a>
+                            </div>  
+                        </div>
+                        <div class="col-lg-9 col-md-9">
+                            <div class="menu-wrapper">
+                                <!-- Main-menu -->
+                                <div class="main-menu">
+                                    <nav class="d-none d-lg-block">
+                                        <ul id="navigation">
+                                            <li><a href="{% url 'index' %}">Home</a></li>
+                                            <li><a href="{% url 'about' %}">About</a></li>
+                                            <li><a href="{% url 'Profile' Profile_Name %}">My Profile</a></li>
+                                            <li><a href="{% url 'Gig' %}">Gig</a></li>
+                                            {% notifications_unread as unread_count %}
+                                                {% if unread_count %}
+                                                    {% register_notify_callbacks callbacks='fill_notification_list,fill_notification_badge' %}
+			                                            <li><a  href="{% url 'Notification' request.user.id %}">Notification {% live_notify_badge %} </a></li>
+                                                        {% live_notify_list list_class="dropdown-menu" %}
+			                                    {% endif %}
+                                                
+                                        </ul>
+                                    </nav>
+                                </div>          
+                                <!-- Header-btn -->
+                                <div class="header-btn d-none f-right d-lg-block">
+                                    <a href="{% url 'Logout' %}" class="btn head-btn2">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+       </div>
+        <!-- Header End -->
+    </header>
+    <main>
+
+       <div class="container">
+<div class="row" style="margin-top:50px ">
+    <div class="col-lg-4 col-xl-4">
+        <div class="card-box text-center">
+            <img src="{{Profile_infos}}" class="avatar-xl img-thumbnail" alt="profile-image">
+
+            <h4 class="mb-0">{{request.user.username}}</h4>
+            <p class="mb-0">{{Country}}</p>
+			
+            <div class="rating-star  d-inline-block">
+	                                                        <i class="fa fa-fw fa-star"></i>
+	                                                        <i class="fa fa-fw fa-star"></i>
+	                                                        <i class="fa fa-fw fa-star"></i>
+	                                                        <i class="fa fa-fw fa-star"></i>
+	                                                        <i class="fa fa-fw fa-star"></i>
+	                                                        <p class="d-inline-block text-dark">14 Reviews </p>
+	                                                    </div>
+			
+			 
+	                                                   
+	                                                        <span class="mb-2 ml-xl-4 d-xl-inline-block d-block">Joined date: {{Join_Date}} </span>
+	                                
+	                                                      
+	                                            
+           <div class="border-top user-social-box">
+	                                    <div class="user-social-media d-xl-inline-block"><span class="mr-2  tiktok-color"> <i class="fab fa-tiktok"></i></span><span>84,019</span></div>
+	                                    <div class="user-social-media d-xl-inline-block"><span class="mr-2 instagram-color"> <i class="fab fa-instagram"></i></span><span>12,300</span></div>
+	                                    <div class="user-social-media d-xl-inline-block"><span class="mr-2 youtube-color"> <i class="fab fa-youtube"></i></span><span>1291</span></div>
+	                                </div>
+
+			
+	                                <div class="notification-title"> Notification</div>
+	                               
+			
+            
+
+            <ul class="social-list list-inline mt-3 mb-0">
+                <li class="list-inline-item">
+                    <a href="javascript: void(0);" class="social-list-item border-purple text-purple"><i class="fab fa-facebook"></i></a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="javascript: void(0);" class="social-list-item border-danger text-danger"><i class="fab fa-google"></i></a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="javascript: void(0);" class="social-list-item border-info text-info"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="javascript: void(0);" class="social-list-item border-secondary text-secondary"><i class="fab fa-github"></i></a>
+                </li>
+            </ul>
+        </div> <!-- end card-box -->
+
+        <div class="card">
+	                                <div class="card-body">
+	                                    <div class="d-inline-block">
+	                                        <h5 class="text-muted">Create GIG</h5>
+	                                        <h2 class="mb-0">&nbsp;</h2>
+	                                    </div>
+	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-brand-light mt-1">
+	                                        <i class="fa fa-money-bill-alt fa-fw fa-sm text-brand"></i>
+	                                    </div>
+	                                </div>
+	                            </div> <!-- end card-box-->
+		
+		
+		<div class="card">
+	                                <div class="card-body">
+	                                    <div class="d-inline-block">
+	                                        <h5 class="text-muted">My GIG</h5>
+	                                        <h2 class="mb-0">&nbsp;</h2>
+	                                    </div>
+	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-brand-light mt-1">
+	                                        <i class="fa fa-money-bill-alt fa-fw fa-sm text-brand"></i>
+	                                    </div>
+	                                </div>
+	                            </div>
+		
+		<div class="card">
+	                                <h5 class="card-header">Sales Performance</h5>
+	                                <div class="card-body">
+	                                    <div id="gender_donut" style="height: 230px;"></div>
+	                                </div>
+	                                <div class="card-footer p-0 bg-white d-flex">
+	                                    <div class="card-footer-item card-footer-item-bordered w-50">
+	                                        <h2 class="mb-0"> 60% </h2>
+	                                        <p>Month:12</p>
+	                                    </div>
+	                                    <div class="card-footer-item card-footer-item-bordered">
+	                                        <h2 class="mb-0">40% </h2>
+	                                        <p>AllTime:133 </p>
+	                                    </div>
+	                                </div>
+	                            </div>
+
+    </div> <!-- end col-->
+
+    <div class="col-lg-8 col-xl-8">
+        <div class="card-box">
+          
+
+          <div class="row">
+                            
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <p class="card-text">  Pending
+											Offers </p>
+                                    </div>
+                                    <div class="card-body">
+                                    {% for i in Product_List %}
+                                        <p class="card-text">Pending a {{i.1}} Offer</p>
+                                        <a href="{% url 'Offers' i.0 %}" class="btn btn-primary">Go</a>
+                                    {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                                <div class="card">
+									<div class="card-header">
+                                     <p class="card-text">    Search
+Wanted
+Ads
+										 Offers </p>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices ppsum in augue posuere congue.</p>
+                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                     <p class="card-text">   Search
+Influencer</p>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+				
+				
+				<div class="row">
+                            
+                  <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                                <div class="card">
+                                     <div class="card-header d-flex">
+                                        <h4 class="card-header-title">Orders</h4>
+                                     
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
+                                </div>
+                            </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                      <div class="card">
+                                    <div class="card-header d-flex">
+                                        <h4 class="card-header-title">Financial</h4>
+                                     
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
+                    </div>
+                  </div>
+				</div>
+				
+				
+				
+				
+				
+				
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <div class="card">
+                                   
+                                    <div class="card-body">
+                                        <div class="container-fluid">
+                                          <div class="main-content container-fluid p-0">
+                                            <div class="email-inbox-header">
+                        <div class="row">
+                            <div class="col-lg-6">
+                            {% notifications_unread as unread_count %}
+                            {% if unread_count %}
+                            {% register_notify_callbacks callbacks='fill_notification_list,fill_notification_badge' %}
+                                <div class="email-title"><span class="icon"><i class="fas fa-inbox"></i></span> Inbox <span class="new-messages">( {% live_notify_badge %} new messages)</span> </div>
+                            {% endif %}
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="email-search">
+                                    <div class="input-group input-search">
+                                        <input class="form-control" type="text" placeholder="Search mail..."><span class="input-group-btn">
+                                       <button class="btn btn-secondary" type="button"><i class="fas fa-search"></i></button></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="email-filters">
+                        <div class="email-filters-left">
+                            <label class="custom-control custom-checkbox be-select-all">
+                                <input class="custom-control-input chk_all" type="checkbox" name="chk_all"><span class="custom-control-label"></span>
+                            </label>
+                            <div class="btn-group">
+                                <button class="btn btn-light dropdown-toggle" data-toggle="dropdown" type="button">
+                                    With selected <span class="caret"></span></button>
+                                <div class="dropdown-menu" role="menu"><a class="dropdown-item" href="#">Mark as rea</a><a class="dropdown-item" href="#">Mark as unread</a><a class="dropdown-item" href="#">Spam</a>
+                                    <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Delete</a>
+                                </div>
+                            </div>
+                            <div class="btn-group">
+                                <button class="btn btn-light" type="button">Archive</button>
+                                <button class="btn btn-light" type="button">Span</button>
+                                <button class="btn btn-light" type="button">Delete</button>
+                            </div>
+                            <div class="btn-group">
+                                <button class="btn btn-light dropdown-toggle" data-toggle="dropdown" type="button">Order by <span class="caret"></span></button>
+                                <div class="dropdown-menu dropdown-menu-right" role="menu"><a class="dropdown-item" href="#">Date</a><a class="dropdown-item" href="#">From</a><a class="dropdown-item" href="#">Subject</a>
+                                    <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Size</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="email-filters-right"><span class="email-pagination-indicator">1-50 of 253</span>
+                            <div class="btn-group email-pagination-nav">
+                                <button class="btn btn-light" type="button"><i class="fas fa-angle-left"></i></button>
+                                <button class="btn btn-light" type="button"><i class="fas fa-angle-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="email-list">
+                        {% for i in user.notifications.unread  %}
+                        <div class="email-list-item email-list-item--unread">
+                            <div class="email-list-actions">
+                                <label class="custom-control custom-checkbox">
+                                    <input class="custom-control-input checkboxes" type="checkbox" value="1" id="one"><span class="custom-control-label"></span>
+                                </label><a class="favorite active" href="#"><span><i class="fas fa-star"></i></span></a>
+                            </div>
+                            <div class="email-list-detail"><span class="date float-right"><span class="icon"><i class="fas fa-paperclip"></i> </span>{{i.timestamp}}</span><span class="from">Penelope Thornton</span>
+                                <p class="msg">{{i}}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+              </div>
+            </div>
+                           
+			<div class="email-filters">
+                        
+                       
+                    </div>				
+									
+				    </div>
+            </div>
+								
+								
+								
+								
+								
+            </div>
+          </div> <!-- end tab-content -->
+        </div> <!-- end card-box-->
+
+    </div> <!-- end col -->
+</div>
+</div>
+
+    </main>
+    <footer>
+        <!-- Footer Start-->
+        <div class="footer-area footer-bg footer-padding">
+            <div class="container">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                       <div class="single-footer-caption mb-50">
+                         <div class="single-footer-caption mb-30">
+                             <div class="footer-tittle">
+                                 <h4>About Us</h4>
+                                 <div class="footer-pera">
+                                     <p>Heaven frucvitful doesn't cover lesser dvsays appear creeping seasons so behold.</p>
+                                </div>
+                             </div>
+                         </div>
+
+                       </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Contact Info</h4>
+                                <ul>
+                                    <li>
+                                    <p>Address :Your address goes
+                                        here, your demo address.</p>
+                                    </li>
+                                    <li><a href="#">Phone : +123456789</a></li>
+                                    <li><a href="#">Email : info@mightyneuron.com</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Important Link</h4>
+                                <ul>
+                                    <li><a href="#"> View Project</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="#">Testimonial</a></li>
+                                    <li><a href="#">Proparties</a></li>
+                                    <li><a href="#">Support</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>Newsletter</h4>
+                                <div class="footer-pera footer-pera2">
+                                 <p>Heaven fruitful doesn't over lesser in days. Appear creeping.</p>
+                             </div>
+                             <!-- Form -->
+                             <div class="footer-form" >
+                                 <div id="mc_embed_signup">
+                                     <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                                     method="get" class="subscribe_form relative mail_part">
+                                         <input type="email" name="email" id="newsletter-form-email" placeholder="Email Address"
+                                         class="placeholder hide-on-focus" onfocus="this.placeholder = ''"
+                                         onblur="this.placeholder = ' Email Address '">
+                                         <div class="form-icon">
+                                             <button type="submit" name="submit" id="newsletter-submit"
+                                             class="email_icon newsletter-submit button-contactForm"><img src="assets/img/icon/form.png" alt=""></button>
+                                         </div>
+                                         <div class="mt-10 info"></div>
+                                     </form>
+                                 </div>
+                             </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               <!--  -->
+               <div class="row footer-wejed justify-content-between">
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                        <!-- logo -->
+                        <div class="footer-logo mb-20">
+                        <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                    <div class="footer-tittle-bottom">
+                        <span>5000+</span>
+                        <p>Talented Hunter</p>
+                    </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <div class="footer-tittle-bottom">
+                            <span>451</span>
+                            <p>Talented Hunter</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                        <!-- Footer Bottom Tittle -->
+                        <div class="footer-tittle-bottom">
+                            <span>568</span>
+                            <p>Talented Hunter</p>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+        <!-- footer-bottom area -->
+        <div class="footer-bottom-area footer-bg">
+            <div class="container">
+                <div class="footer-border">
+                     <div class="row d-flex justify-content-between align-items-center">
+                         <div class="col-xl-10 col-lg-10 ">
+                             <div class="footer-copy-right">
+                                 <p>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#" target="_blank">Mighty Neuron</a>
+ </p>
+                             </div>
+                         </div>
+                         <div class="col-xl-2 col-lg-2">
+                             <div class="footer-social f-right">
+                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                 <a href="#"><i class="fab fa-twitter"></i></a>
+                                 <a href="#"><i class="fas fa-globe"></i></a>
+                                 <a href="#"><i class="fab fa-behance"></i></a>
+                             </div>
+                         </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+
+  <!-- JS here -->
+	
+		<!-- All JS Custom Plugins Link Here here -->
+        <script src="{% static 'js/vendor/modernizr-3.5.0.min.js' %}"></script>
+		<!-- Jquery, Popper, Bootstrap -->
+		<script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+        <script src="{% static 'js/popper.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+	    <!-- Jquery Mobile Menu -->
+        <script src="{% static 'js/jquery.slicknav.min.js' %}"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'js/slick.min.js' %}"></script>
+        <script src="{% static 'js/price_rangs.js' %}"></script>
+        
+		<!-- One Page, Animated-HeadLin -->
+        <script src="{% static 'js/wow.min.js' %}"></script>
+		<script src="{% static 'js/animated.headline.js' %}"></script>
+        <script src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+
+		<!-- Scrollup, nice-select, sticky -->
+        <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
+        <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+		<script src="{% static 'js/jquery.sticky.js' %}"></script>
+        
+        <!-- contact js -->
+        <script src="{% static 'js/contact.js' %}"></script>
+        <script src="{% static 'js/jquery.form.js' %}"></script>
+        <script src="{% static 'js/jquery.validate.min.js' %}"></script>
+        <script src="{% static 'js/mail-script.js' %}"></script>
+        <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+        
+		<!-- Jquery Plugins, main Jquery -->	
+        <script src="{% static 'js/plugins.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+	   
+	   <script src=	"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+    </body>
+</html>

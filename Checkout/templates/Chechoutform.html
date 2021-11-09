@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Enter Details</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+    </head>
+    <body>
+    <form class="form" method = "POST">
+    {% csrf_token %}
+      <div class="title"></div>
+      <div class="subtitle">Please Enter the Details Below</div>
+        {% for i in Billing  %}
+            <div class="input-container ic1">
+                {{i}}
+            </div>
+        {% endfor %}
+      <button type="text" class="submit">Proceed to Pay</button>
+    </form>
+        
+        <script src="" async defer></script>
+    </body>
+</html>

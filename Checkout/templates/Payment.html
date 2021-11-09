@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+{% load static %}
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/payment.css' %}">
+</head>
+
+<body>
+<div class="topnav">
+  <a href="{% url 'Gig' %}">Back to Gig</a>
+</div>
+<div class='subject'> Influencer </br><strong>Credit Card Checkout</strong></div>
+
+<div class='checkout'>
+  <div class='order'>
+    <h2>Checkout</h2>
+    <ul class='order-list'>
+
+      {% if Split1 == "Basic" %}
+      <li><h4>{{Context_Data.0.Besic_Packages_Name}}</h4></li>
+      <li><h4>{{Context_Data.0.Besic_Packages_Descriptions}}</h4></li>
+      <li><h4>${{Context_Data.0.Besic_Packages_Price}}</h4></li>
+      {% elif Split1 == "std" %}
+      <li><h4>{{Context_Data.0.Standered_Packeges_Name}}</h4></li>
+      <li><h4>{{Context_Data.0.Standered_Packeges_Description}}</h4></li>
+      <li><h4>${{Context_Data.0.Standered_Packeges_Price}}</h4></li>
+      {% elif Split1 == "prm" %}
+      <li><h4>{{Context_Data.0.Premium_Packages_Name}}</h4></li>
+      <li><h4>{{Context_Data.0.Premium_Packages_Descriptions}}</h4></li>
+      <li><h4>${{Context_Data.0.Premium_Packages_Price}}</h4></li>
+      {% else %}
+      <p>no data</p>
+      {% endif %}
+    </ul>
+    {% if Split1 == "Basic" %}
+    <h5 class='total'>Total</h5><h1>$ {{Context_Data.0.Besic_Packages_Price}}</h1>
+    {% elif Split1 == "std" %}
+    <h5 class='total'>Total</h5><h1>$ {{Context_Data.0.Standered_Packeges_Price}}</h1>
+    {% elif Split1 == "prm" %}
+    <h5 class='total'>Total</h5><h1>$ {{Context_Data.0.Premium_Packages_Price}}</h1>
+    {% endif %}
+    
+  </div>
+  <h2>Payment</h2>
+  <div id='payment' class='payment'>
+    
+    <form class='card-form'>
+      {% csrf_token %}
+      {% for i in Billing %}
+        <p class='field'>
+        {{i.label_tag}}
+        {{i}}
+      </p>
+      
+      {% endfor %}
+
+    </form>
+    <div id="paypal-button-container" style="margin-left:15%;"></div>
+  </div>
+  <div id='paid' class='paid'>
+    <svg id='icon-paid' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 310.277 310.277" style="enable-background:new 0 0 310.277 310.277;" xml:space="preserve" width="180px" height="180px">
+    <g> <path d="M155.139,0C69.598,0,0,69.598,0,155.139c0,85.547,69.598,155.139,155.139,155.139   c85.547,0,155.139-69.592,155.139-155.139C310.277,69.598,240.686,0,155.139,0z M144.177,196.567L90.571,142.96l8.437-8.437   l45.169,45.169l81.34-81.34l8.437,8.437L144.177,196.567z" fill="#3ac569"/>
+    </g></svg>
+    <h2>Your payment was completed.</h2>
+    <h2>Thank you!</h2>
+  </div>
+</div>
+
+<div class='icon-credits'>Outlined icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> & <a href="http://www.flaticon.com/authors/abhimanyu-rana" title="Abhimanyu Rana">Abhimanyu Rana</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+    
+<script src="https://www.paypal.com/sdk/js?client-id=AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R&currency=USD"></script>
+<script>
+    
+    var Total = 0 
+    var Packages = '{{Pkg_Id}}'
+    {% if Split1 == "Basic" %}
+      Total = '{{Context_Data.0.Besic_Packages_Price}}'
+    {% elif Split1 == "std" %}
+      Total = '{{Context_Data.0.Standered_Packeges_Price}}'
+    {% elif Split1 == "prm" %}
+      Total = '{{Context_Data.0.Premium_Packages_Price}}'
+    {% endif %}
+
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+              const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+          return cookieValue;
+    }
+    var csrftoken = getCookie('csrftoken');
+
+  function CompleteOrder(){
+    var url = '{% url 'Completeorder' %}'
+    var Order_id = '{{Pkg_Id}}';
+    var json_object = {'id': Order_id};
+      fetch(url, {
+	 			method:'POST',
+	 			headers:{
+	 				'Content-type':'application/json',
+	 				'X-CSRFToken':csrftoken,
+	 			},
+	 			body:JSON.stringify(json_object)
+	 		})
+	 	}
+  paypal.Buttons({
+
+            style: {
+                color:  'blue',
+                shape:  'pill',
+                label:  'pay',
+                height: 40,
+                
+            },
+
+            // Set up the transaction
+               createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: Total
+                        }
+                    }]
+                });
+            },
+
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(orderData) {
+                    // Successful capture! For demo purposes:
+                    CompleteOrder()
+                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                    var transaction = orderData.purchase_units[0].payments.captures[0];
+                    var Order_id = '{{Pkg_Id}}';
+                    alert('Transaction '+ transaction.status + ': ' + transaction.id + " " + Order_id + '\n\nSee console for all available details');
+
+                    // Replace the above to show a success message within this page, e.g.
+                    // const element = document.getElementById('paypal-button-container');
+                    // element.innerHTML = '';
+                    // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                    // Or go to another URL:  actions.redirect('thank_you.html');
+                });
+            }
+
+        }).render('#paypal-button-container');
+</script>
+<style>
+        /* Media query for mobile viewport */
+        @media screen and (max-width: 400px) {
+            #paypal-button-container {
+                width: 100%;
+            }
+        }
+        
+        /* Media query for desktop viewport */
+        @media screen and (min-width: 400px) {
+            #paypal-button-container {
+                width: 250px;
+            }
+        }
+
+        .topnav {
+            
+            overflow: hidden;
+          }
+
+          /* Style the links inside the navigation bar */
+          .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            float: right;
+          }
+
+          /* Change the color of links on hover */
+          .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+          }
+
+          /* Add a color to the active/current link */
+          .topnav a.active {
+            background-color: #04AA6D;
+            color: white;
+          }
+  </style>
+</body>
+    
+</html>
